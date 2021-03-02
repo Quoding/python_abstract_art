@@ -92,6 +92,7 @@ y_array = np.linspace(0.0, 1.0, d_Y).reshape((d_Y, 1, 1))
 min_depth = 5
 max_depth = 10
 
+
 def make_image():
     is_boring = True
     while is_boring:
@@ -102,8 +103,9 @@ def make_image():
         img = np.uint8(np.rint(img.clip(0.0, 1.0) * 255.0))
         img = Image.fromarray(img)
         is_boring = is_boring_image(img)
-    img.save("out.png")
+    return img
+
 
 if __name__ == "__main__":
-    make_image()
-
+    img = make_image()
+    img.save("out.png")
